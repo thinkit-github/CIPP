@@ -26,6 +26,9 @@ export const CippTenantSelector = (props) => {
     url: "/api/listTenants",
     data: { AllTenantSelector: true },
     queryKey: "TenantSelector",
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    keepPreviousData: true,
   });
 
   const [currentTenant, setSelectedTenant] = useState(null);
@@ -194,7 +197,7 @@ export const CippTenantSelector = (props) => {
           },
           {
             label: "Exchange Portal",
-            link: `https://admin.exchange.microsoft.com/?landingpage=homepage&form=mac_sidebar&delegatedOrg=${currentTenant?.value}`,
+            link: `https://admin.cloud.microsoft/exchange?landingpage=homepage&form=mac_sidebar&delegatedOrg=${currentTenant?.value}`,
             icon: <Mail />,
           },
           {
